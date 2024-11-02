@@ -20,8 +20,9 @@ def get_data(url):
             filtered_scripts += [script]
     return scripts
 
-def get_epl_data():
-    scripts = get_data("https://understat.com/league/EPL/2020")
+def get_epl_data(outfile_base):
+    season = outfile_base.split('/')[1].split('-')[0]
+    scripts = get_data(f"https://understat.com/league/EPL/{season}")
     teamData = {}
     playerData = {}
     for script in scripts:
@@ -62,7 +63,7 @@ def get_player_data(id):
     return matchesData, shotsData, groupsData
 
 def parse_epl_data(outfile_base):
-    teamData,playerData = get_epl_data()
+    teamData,playerData = get_epl_data(outfile_base)
     new_team_data = []
     for t,v in teamData.items():
         new_team_data += [v]
@@ -125,7 +126,7 @@ def main():
     #md, sd, gd = get_player_data(318)
     #match_frame = pd.DataFrame.from_records(md)
     #match_frame.to_csv('auba.csv', index=False)
-    # match_ids('data/2024-25/understat', 'data/2024-25')
+    #match_ids('data/2024-25/understat', 'data/2024-25')
 
 if __name__ == '__main__':
     main()

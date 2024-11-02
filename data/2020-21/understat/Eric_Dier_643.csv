@@ -1,4 +1,5 @@
 goals,shots,xG,time,position,h_team,a_team,h_goals,a_goals,date,id,season,roster_id,xA,assists,key_passes,npg,npxG,xGChain,xGBuildup
+0,0,0,18,Sub,Bayern Munich,Union Berlin,3,0,2024-11-02,27815,2024,684792,0,0,0,0,0,0.46160200238227844,0.46160200238227844
 0,0,0,10,Sub,Bochum,Bayern Munich,0,5,2024-10-27,27812,2024,683878,0,0,0,0,0,0.4604729413986206,0.4604729413986206
 0,0,0,1,Sub,Eintracht Frankfurt,Bayern Munich,3,3,2024-10-06,27787,2024,680479,0,0,0,0,0,0,0
 0,0,0,6,Sub,Wolfsburg,Bayern Munich,2,3,2024-08-25,27749,2024,668791,0,0,0,0,0,0.35554569959640503,0.35554569959640503

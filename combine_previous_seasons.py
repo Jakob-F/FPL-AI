@@ -41,7 +41,6 @@ fpl_name_mapping = {
     'Rúben Santos Gato Alves Dias': 'Rúben Gato Alves Dias',
     'Sergi Canós Tenés': 'Sergi Canós',
     'Vladimir Coufal': 'Vladimír Coufal',
-    
 }
 
 # Player mapping season 2023-24
@@ -128,8 +127,8 @@ player_mapping_23 = {
     'Marc Guehi': 'Marc Guéhi',
     'Martin Odegaard': 'Martin Ødegaard',
     'Mateo Kovacic': 'Mateo Kovačić',
-    'Matheus Cunha': 'Matheus França de Oliveira',
-    'Matheus França': 'Matheus Santos Carneiro Da Cunha',
+    'Matheus Cunha': 'Matheus Santos Carneiro Da Cunha',
+    'Matheus França': 'Matheus França de Oliveira',
     'Matheus Nunes': 'Matheus Luiz Nunes',
     'Matthew Cash': 'Matty Cash',
     'Maxime Estève': 'Maxime Esteve',
@@ -165,8 +164,8 @@ player_mapping_23 = {
     'Tomas Soucek': 'Tomáš Souček',
     'Toti': 'Toti António Gomes',
     'Valentino Livramento': 'Tino Livramento',
-    'Victor Kristiansen': 'Victor da Silva',
     'Vinicius Souza': 'Vini de Souza Costa',
+    'Vitinho': 'Victor da Silva',
     'Vladimir Coufal': 'Vladimír Coufal',
     'Wilfred Ndidi': 'Wilfred Ndidi',
     'Willian': 'Willian Borges da Silva',
@@ -205,7 +204,7 @@ player_mapping_21['Emerson Leite de Souza Junior'] = 'Emerson Aparecido Leite de
 
 
 
-def merge_past_season(season, player_mapping):
+def merge_season(season, player_mapping):
 
     # Create team mapping
     df_teams = pd.read_csv(f"data/{season}/teams.csv")
@@ -225,6 +224,11 @@ def merge_past_season(season, player_mapping):
     dataframes = []
     for filename in os.listdir(folder_path):
         if filename.endswith('.csv'):
+
+            # Skip teams and understat_player
+            if filename.split('_')[0].lower() == 'understat':
+                continue
+
             # Create the full file path
             file_path = os.path.join(folder_path, filename)
             
@@ -273,9 +277,9 @@ def merge_past_season(season, player_mapping):
 
 def main():
     # Merge FPL and Understat data for each past season
-    df_23 = merge_past_season('2023-24', player_mapping_23)
-    df_22 = merge_past_season('2022-23', player_mapping_22)
-    df_21 = merge_past_season('2021-22', player_mapping_21)
+    df_23 = merge_season('2023-24', player_mapping_23)
+    df_22 = merge_season('2022-23', player_mapping_22)
+    df_21 = merge_season('2021-22', player_mapping_21)
 
     # Combine all seasons
     df_all = pd.concat([df_21, df_22, df_23], ignore_index=True)

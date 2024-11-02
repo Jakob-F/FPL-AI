@@ -1,4 +1,5 @@
 goals,shots,xG,time,position,h_team,a_team,h_goals,a_goals,date,id,season,roster_id,xA,assists,key_passes,npg,npxG,xGChain,xGBuildup
+0,0,0,90,GK,Genoa,Fiorentina,0,1,2024-10-31,27456,2024,684425,0,0,0,0,0,0.04643268883228302,0.04643268883228302
 0,0,0,90,GK,Fiorentina,Roma,5,1,2024-10-27,27445,2024,684064,0,0,0,0,0,0.3848676085472107,0.3848676085472107
 0,0,0,90,GK,Lecce,Fiorentina,0,6,2024-10-20,27439,2024,681951,0,0,0,0,0,0.023796236142516136,0.023796236142516136
 0,0,0,90,GK,Fiorentina,AC Milan,2,1,2024-10-06,27426,2024,680635,0,0,0,0,0,0,0
