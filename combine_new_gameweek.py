@@ -217,6 +217,7 @@ def main():
     df_all = pd.concat([df_prev_seasons, df_24], ignore_index=True)
     df_all.reset_index(drop=True, inplace=True)
     df_all['name'] = df_all['name'].map(fpl_name_mapping).fillna(df_all['name'])
+    df_all = df_all.fillna(0)
 
     # Save to flle
     df_all.to_csv("data/all_seasons_merged.csv", index=False)
