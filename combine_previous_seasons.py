@@ -199,9 +199,158 @@ for row in df_player_mapping_21.iloc:
     if row[' Understat_Name'] != row[' FPL_Name']:
         player_mapping_21[row[' Understat_Name']] = row[' FPL_Name']
         
-# # Manually add mistakes
+# Manually add mistakes
 player_mapping_21['Emerson Leite de Souza Junior'] = 'Emerson Aparecido Leite de Souza Junior'
 
+
+# Player mapping for 2020-21 season
+player_mapping_20 = {
+    'Ahmed Elmohamady': 'Ahmed El Mohamady',
+    'Aleksandar Mitrovic': 'Aleksandar Mitrović',
+    'Alex Telles': 'Alex Nicolao Telles',
+    'Alisson': 'Alisson Ramses Becker',
+    'Allan': 'Allan Marques Loureiro',
+    'André Gomes': 'André Filipe Tavares Gomes',
+    'Ben Chilwell': 'Benjamin Chilwell',
+    'Bernard': 'Bernard Anício Caldeira Duarte',
+    'Bernardo Silva': 'Bernardo Mota Veiga de Carvalho e Silva',
+    'Bobby Reid': 'Bobby Decordova-Reid',
+    'Bruno Fernandes': 'Bruno Miguel Borges Fernandes',
+    'Caglar Söyüncü': 'Çaglar Söyüncü',
+    'Carlos Vinicius': 'Carlos Vinicius Alves Morais',
+    'Dani Ceballos': 'Daniel Ceballos Fernández',
+    'Daniel Podence': 'Daniel Castelo Podence',
+    'David Luiz': 'David Luiz Moreira Marinho',
+    'Dele Alli': 'Bamidele Alli',
+    'Douglas Luiz': 'Douglas Luiz Soares de Paulo',
+    'Ederson': 'Ederson Santana de Moraes',
+    'Eddie Nketiah': 'Edward Nketiah',
+    'Emile Smith-Rowe': 'Emile Smith Rowe',
+    'Emiliano Martinez': 'Emiliano Martínez',
+    'Fabinho': 'Fabio Henrique Tavares',
+    'Fernandinho': 'Fernando Luiz Rosa',
+    'Ferrán Torres': 'Ferran Torres',
+    'Franck Zambo': 'André-Frank Zambo Anguissa',
+    'Fred': 'Frederico Rodrigues de Paula Santos',
+    'Gabriel Jesus': 'Gabriel Fernando de Jesus',
+    'Gabriel Martinelli': 'Gabriel Teodoro Martinelli Silva',
+    'Hélder Costa': 'Hélder Wander Sousa de Azevedo e Costa',
+    'Ian Poveda-Ocampo': 'Ian Carlo Poveda-Ocampo',
+    'Ivan Cavaleiro': 'Ivan Ricardo Neves Abreu Cavaleiro',
+    'Joelinton': 'Joelinton Cássio Apolinário de Lira',
+    'Jonny': 'Jonathan Castro Otto',
+    'Jorginho': 'Jorge Luiz Frello Filho',
+    'Joe Willock': 'Joseph Willock',
+    'João Moutinho': 'João Filipe Iria Santos Moutinho',
+    'João Cancelo': 'João Pedro Cavaco Cancelo',
+    'Kepa': 'Kepa Arrizabalaga',
+    'Lucas Moura': 'Lucas Rodrigues Moura da Silva',
+    'Martin Odegaard': 'Martin Ødegaard',
+    'Mat Ryan': 'Mathew Ryan',
+    'Mohamed Elneny': 'Mohamed Naser El Sayed Elneny',
+    'Nicolas Pepe': 'Nicolas Pépé',
+    'Nélson Semedo': 'Nélson Cabral Semedo',
+    'Semi Ajayi': 'Oluwasemilogo Adesewo Ibidapo Ajayi',
+    'Oriol Romeu': 'Oriol Romeu Vidal',
+    'Pablo Hernández': 'Pablo Hernández Domínguez',
+    'Pedro Neto': 'Pedro Lomba Neto',
+    'Raphinha': 'Raphael Dias Belloli',
+    'Ricardo Pereira': 'Ricardo Domingos Barbosa Pereira',
+    'Richarlison': 'Richarlison de Andrade',
+    'Rodri': 'Rodrigo Hernandez',
+    'Rodrigo': 'Rodrigo Moreno',
+    'Romain Saiss': 'Romain Saïss',
+    'Rui Patrício': 'Rui Pedro dos Santos Patrício',
+    'Rúben Neves': 'Rúben Diogo da Silva Neves',
+    'Rúben Dias': 'Rúben Santos Gato Alves Dias',
+    'Said Benrahma': 'Saïd Benrahma',
+    'Solly March': 'Solomon March',
+    'Son Heung-Min': 'Heung-Min Son',
+    'Tanguy NDombele Alvaro': 'Tanguy Ndombele',
+    'Thiago Alcántara': 'Thiago Alcántara do Nascimento',
+    'Vitinha': 'Vitor Ferreira',
+    'Willian': 'Willian Borges Da Silva',
+    'Willian José': 'Willian José Da Silva',
+    'Daniel N&#039;Lundulu': "Daniel N'Lundulu",
+    'Dara O&#039;Shea': "Dara O'Shea",
+    'Gabriel': 'Gabriel Magalhães',
+    'Trézéguet': 'Mahmoud Ahmed Ibrahim Hassan',
+    'N&#039;Golo Kanté': "N'Golo Kanté",
+    'Thiago Silva': 'Thiago Thiago'
+}
+
+
+# Player mapping for season 2019-20
+player_mapping_19 = {
+    'Adrián': 'Adrián San Miguel del Castillo',
+    'Ahmed Elmohamady': 'Ahmed El Mohamady',
+    'Alisson': 'Alisson Ramses Becker',
+    'André Gomes': 'André Filipe Tavares Gomes',
+    'Ben Chilwell': 'Benjamin Chilwell',
+    'Bernard': 'Bernard Anício Caldeira Duarte',
+    'Bernardo': 'Bernardo Fernandes da Silva Junior',
+    'Bernardo Silva': 'Bernardo Mota Veiga de Carvalho e Silva',
+    'Björn Engels': 'Bjorn Engels',
+    'Bruno Fernandes': 'Bruno Miguel Borges Fernandes',
+    'Caglar Söyüncü': 'Çaglar Söyüncü',
+    'Dani Ceballos': 'Daniel Ceballos Fernández',
+    'Daniel Podence': 'Daniel Castelo Podence',
+    'David Luiz': 'David Luiz Moreira Marinho',
+    'Dele Alli': 'Bamidele Alli',
+    'Djibril Sidibe': 'Djibril Sidibé',
+    'Douglas Luiz': 'Douglas Luiz Soares de Paulo',
+    'Eddie Nketiah': 'Edward Nketiah',
+    'Ederson': 'Ederson Santana de Moraes',
+    'Emiliano Martinez': 'Emiliano Martínez',
+    'Felipe Anderson': 'Felipe Anderson Pereira Gomes',
+    'Fernandinho': 'Fernando Luiz Rosa',
+    'Fred': 'Frederico Rodrigues de Paula Santos',
+    'Frederic Guilbert': 'Frédéric Guilbert',
+    'Gabriel Jesus': 'Gabriel Fernando de Jesus',
+    'Gabriel Martinelli': 'Gabriel Teodoro Martinelli Silva',
+    'Gedson Fernandes': 'Gedson Carvalho Fernandes',
+    'Ismaila Sarr': 'Ismaïla Sarr',
+    'Jack O&#039;Connell': "Jack O'Connell",
+    'Jean-Philippe Gbamin': 'Jean-Philippe Gbamin',
+    'Joe Willock': 'Joseph Willock',
+    'Joelinton': 'Joelinton Cássio Apolinário de Lira',
+    'Jorginho': 'Jorge Luiz Frello Filho',
+    'João Cancelo': 'João Pedro Cavaco Cancelo',
+    'João Moutinho': 'João Filipe Iria Santos Moutinho',
+    'Kepa': 'Kepa Arrizabalaga',
+    'Kiko Femenía': 'Francisco Femenía Far',
+    'Lucas Moura': 'Lucas Rodrigues Moura da Silva',
+    'Mat Ryan': 'Mathew Ryan',
+    'Max Aarons': 'Maximillian Aarons',
+    'Muhamed Besic': 'Muhamed Bešić',
+    'N&#039;Golo Kanté': 'N&#039;Golo Kanté',
+    'Nicolas Pepe': 'Nicolas Pépé',
+    'Oriol Romeu': 'Oriol Romeu Vidal',
+    'Pedro': 'Pedro Rodríguez Ledesma',
+    'Pedro Neto': 'Pedro Lomba Neto',
+    'Ricardo Pereira': 'Ricardo Domingos Barbosa Pereira',
+    'Richarlison': 'Richarlison de Andrade',
+    'Roberto Jiménez': 'Roberto Jimenez Gago',
+    'Rodri': 'Rodrigo Hernandez',
+    'Romain Saiss': 'Romain Saïss',
+    'Rui Patrício': 'Rui Pedro dos Santos Patrício',
+    'Rúben Neves': 'Rúben Diogo da Silva Neves',
+    'Rúben Vinagre': 'Rúben Gonçalo Silva Nascimento Vinagre',
+    'Sokratis': 'Sokratis Papastathopoulos',
+    'Solly March': 'Solomon March',
+    'Son Heung-Min': 'Heung-Min Son',
+    'Tanguy NDombele Alvaro': 'Tanguy Ndombele',
+    'Trézéguet': 'Trézéguet',
+    'Wesley': 'Wesley Moraes',
+    'Willian': 'Willian Borges Da Silva',
+    'Willy Caballero': 'Willy Caballero',
+    'Fabinho': 'Fabio Henrique Tavares',
+    'Jonny': 'Jonathan Castro Otto',
+    "N&#039;Golo Kanté": "N'Golo Kanté",
+    'Jota': 'José Ignacio Peleteiro Romallo',
+    'Angelino': 'José Ángel Esmorís Tasende',
+    'Trézéguet': 'Mahmoud Ahmed Ibrahim Hassan'
+}
 
 
 def merge_season(season, player_mapping):
@@ -218,6 +367,8 @@ def merge_season(season, player_mapping):
     if season == '2023-24':
         df_fpl['name'] = df_fpl['name'].map({'Đorđe Petrović': 'Djordje Petrovic'}).fillna(df_fpl['name'])
     df_fpl['opponent_team'] = df_fpl['opponent_team'].map(team_dict).fillna(df_fpl['opponent_team'])
+    if season == '2019-20':
+        df_fpl['name'] = df_fpl['name'].str.replace('_', ' ').str.replace(r' \d+$', '', regex=True)
 
     # Load Understat data
     folder_path = f'data/{season}/understat'
@@ -263,13 +414,13 @@ def merge_season(season, player_mapping):
     # Merge FPL and Understat data
     df_merged = pd.merge(df_fpl, df_understat, how='left', left_on=['name', 'kickoff_date'], right_on=['name', 'date'])
 
-    # Remove players who play less than 5 games all season
+    # Remove players who play less than 6 games all season
     for player in sorted(df_merged.name.unique()):
         total_games = len(df_merged[df_merged.name==player])
         games_not_played = sum(df_merged[df_merged.name==player].minutes == 0)
         mins_played = sum(df_merged[df_merged.name==player].minutes)
         nans = sum(df_merged[df_merged.name==player].goals.isna())
-        if total_games - games_not_played < 5:
+        if total_games - games_not_played < 6:
             df_merged = df_merged[df_merged.name != player]
 
     return df_merged
@@ -280,9 +431,11 @@ def main():
     df_23 = merge_season('2023-24', player_mapping_23)
     df_22 = merge_season('2022-23', player_mapping_22)
     df_21 = merge_season('2021-22', player_mapping_21)
+    df_20 = merge_season('2020-21', player_mapping_20)
+    df_19 = merge_season('2020-21', player_mapping_19)
 
     # Combine all seasons
-    df_all = pd.concat([df_21, df_22, df_23], ignore_index=True)
+    df_all = pd.concat([df_19, df_20, df_21, df_22, df_23], ignore_index=True)
     df_all.reset_index(drop=True, inplace=True)
     df_all['name'] = df_all['name'].map(fpl_name_mapping).fillna(df_all['name'])
 
