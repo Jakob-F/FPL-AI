@@ -122,7 +122,7 @@ def match_ids(understat_dir, data_dir):
             outf.write(p.us_id + "," + p.fpl_id + "," + p.us_name + "," + p.fpl_name + "\n")
 
 def main():
-    parse_epl_data('data/2019-20/understat')
+    parse_epl_data('data/2024-25/understat')
     # md, sd, gd = get_player_data(318)
     # match_frame = pd.DataFrame.from_records(md)
     # match_frame.to_csv('auba.csv', index=False)

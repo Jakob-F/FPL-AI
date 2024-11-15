@@ -373,11 +373,16 @@ def merge_season(season, player_mapping):
     # Load Understat data
     folder_path = f'data/{season}/understat'
     dataframes = []
+    teams = []
     for filename in os.listdir(folder_path):
         if filename.endswith('.csv'):
 
             # Skip teams and understat_player
             if filename.split('_')[0].lower() == 'understat':
+                team_file_name = filename[:-4]
+                team_name = (' ').join(team_file_name.split('_')[1:])
+                if team_name != 'player':
+                    teams.append(team_name)
                 continue
 
             # Create the full file path
@@ -407,21 +412,24 @@ def merge_season(season, player_mapping):
 
     # Combine all the dataframes into one large dataframe
     df_understat = pd.concat(dataframes, ignore_index=True)
-    df_understat = df_understat.drop(['assists', 'position'], axis=1)
+    df_understat = df_understat[df_understat.h_team.isin(teams)]
+    df_understat = df_understat.drop(['position'], axis=1)
     df_understat['date'] = pd.to_datetime(df_understat['date']).dt.date
     df_understat['name'] = df_understat['name'].map(player_mapping).fillna(df_understat['name'])
 
     # Merge FPL and Understat data
     df_merged = pd.merge(df_fpl, df_understat, how='left', left_on=['name', 'kickoff_date'], right_on=['name', 'date'])
 
-    # Remove players who play less than 6 games all season
+    # Remove players who play no minutes all season
     for player in sorted(df_merged.name.unique()):
         total_games = len(df_merged[df_merged.name==player])
         games_not_played = sum(df_merged[df_merged.name==player].minutes == 0)
         mins_played = sum(df_merged[df_merged.name==player].minutes)
         nans = sum(df_merged[df_merged.name==player].goals.isna())
-        if total_games - games_not_played < 6:
+        if mins_played == 0:
             df_merged = df_merged[df_merged.name != player]
+        # if total_games - games_not_played < 6:
+        #     df_merged = df_merged[df_merged.name != player]
 
     return df_merged
 
