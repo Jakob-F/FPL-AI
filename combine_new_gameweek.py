@@ -204,10 +204,48 @@ fpl_name_mapping = {
     'Vladimir Coufal': 'Vladimír Coufal',   
 }
 
+# Define team mapping
+team_mapping = {
+    'Arsenal': 1,
+    'Aston Villa': 2,
+    'Bournemouth': 3,
+    'Brentford': 4,
+    'Brighton': 5,
+    'Chelsea': 6,
+    'Crystal Palace': 7,
+    'Everton': 8,
+    'Fulham': 9,
+    'Ipswich': 10,
+    'Leicester': 11,
+    'Liverpool': 12,
+    'Man City': 13,
+    'Man Utd': 14,
+    'Newcastle': 15,
+    'Nott\'m Forest': 16,
+    'Southampton': 17,
+    'Spurs': 18,
+    'West Ham': 19,
+    'Wolves': 20,
+    'Burnley': 21,
+    'Luton': 22,
+    'Sheffield Utd': 23,
+    'Leeds': 24,
+    'Watford': 25,
+    'West Brom': 26,
+    'Norwich': 27
+}
+
+# Define position mapping
+pos_mapping = {'GK': 1,
+              'GKP': 1,
+              'DEF': 2,
+              'MID': 3,
+              'FWD': 4}
+
 
 def main():
     # Parse to get newest data
-    # parse_data()
+    parse_data()
 
     # Merge newest season FPL and Understat data
     df_24 = merge_season('2024-25', player_mapping_24)
@@ -216,8 +254,21 @@ def main():
     df_prev_seasons = pd.read_csv("data/prev_seasons_merged.csv")
     df_all = pd.concat([df_prev_seasons, df_24], ignore_index=True)
     df_all.reset_index(drop=True, inplace=True)
-    df_all['name'] = df_all['name'].map(fpl_name_mapping).fillna(df_all['name'])
     df_all = df_all.fillna(0)
+    
+    # Add team and position IDs, update names
+    df_all['name'] = df_all['name'].map(fpl_name_mapping).fillna(df_all['name'])
+    df_all['team_id'] = df_all['team'].map(team_mapping)
+    df_all['opp_team_id'] = df_all['opponent_team'].map(team_mapping)
+    df_all['pos_id'] = df_all['position'].map(pos_mapping)
+
+    # Create team goal and opp goal columns
+    df_all['team_goals'] = df_all.apply(
+        lambda row: row['team_h_score'] if row['was_home'] else row['team_a_score'], axis=1
+    )
+    df_all['opponent_goals'] = df_all.apply(
+        lambda row: row['team_a_score'] if row['was_home'] else row['team_h_score'], axis=1
+    )
 
     # Save to flle
     df_all.to_csv("data/all_seasons_merged.csv", index=False)
