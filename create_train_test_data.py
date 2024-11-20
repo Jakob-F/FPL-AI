@@ -352,15 +352,15 @@ def main():
     # Plot correlation matrix of features
     plot_correlation_matrix(df_all[keys_to_select])
 
-    # # Create training data
-    # create_training_data(df_all, keys_to_select)
+    # Create training data
+    create_training_data(df_all, keys_to_select)
 
     # # API calls to load player data (Do once before each gameweek)
     # load_player_data()
 
-    # Create test data
-    next_gameweek = 12
-    create_test_data(df_all, keys_to_select, next_gameweek)
+    # # Create test data
+    # next_gameweek = 12
+    # create_test_data(df_all, keys_to_select, next_gameweek)
 
 
 

@@ -443,8 +443,8 @@ def main():
     df_19 = merge_season('2020-21', player_mapping_19)
 
     # Combine all seasons
-    df_all = pd.concat([df_19, df_20, df_21, df_22, df_23], ignore_index=True)
-    df_all.reset_index(drop=True, inplace=True)
+    df_all = pd.concat([df_19, df_20, df_21, df_22, df_23], ignore_index=True).drop_duplicates()
+    df_all = df_all.sort_values(by='kickoff_time').reset_index(drop=True)
     df_all['name'] = df_all['name'].map(fpl_name_mapping).fillna(df_all['name'])
 
     # Save to flle

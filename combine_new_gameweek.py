@@ -244,16 +244,16 @@ pos_mapping = {'GK': 1,
 
 
 def main():
-    # Parse to get newest data
-    parse_data()
+    # # Parse to get newest data
+    # parse_data()
 
     # Merge newest season FPL and Understat data
     df_24 = merge_season('2024-25', player_mapping_24)
 
     # Combine all seasons
     df_prev_seasons = pd.read_csv("data/prev_seasons_merged.csv")
-    df_all = pd.concat([df_prev_seasons, df_24], ignore_index=True)
-    df_all.reset_index(drop=True, inplace=True)
+    df_all = pd.concat([df_prev_seasons, df_24], ignore_index=True).drop_duplicates()
+    df_all = df_all.sort_values(by='kickoff_time').reset_index(drop=True)
     df_all = df_all.fillna(0)
     
     # Add team and position IDs, update names
