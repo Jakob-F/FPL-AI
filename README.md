@@ -21,17 +21,20 @@ This is my Fantasy Premier League AI. It is a Python project that combines **dat
    ```bash
    git clone https://github.com/Jakob-F/FPL-AI.git
    ```
+2. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Combine Previous Seasons Data**  
+   Run `combine_previous_seasons.py` to combine FPL and Understat data from all previous seasons into one large DataFrame. This only needs to be done once.
 
-2. **Combine Previous Seasons Data**  
-   Run `combine_previous_seasons.py` to combine FPL and Understat data from all previous seasons into one large DataFrame.
+4. **Update with Current Season Data**  
+   Run `combine_new_gameweek.py` to scrape the newest FPL and Understat data for the current season and combine it with the data from previous seasons. This should be done once before every new gameweek to get the newest data.
 
-3. **Update with Current Season Data**  
-   Run `combine_new_gameweek.py` to scrape the newest FPL and Understat data for the current season and combine it with the data from previous seasons.
+5. **Create Training and Test Data**  
+   Run `create_train_test_data.py` to create training and test datasets. It is possible to select which features/stats to use for the data in this script. This should also be done once before every new gameweek.
 
-4. **Create Training and Test Data**  
-   Run `create_train_test_data.py` to create training and test datasets. It is possible to select which features/stats to use for the data in this script.
-
-5. **XGBoost Model**  
+6. **XGBoost Model**  
    The `XGBoost.ipynb` Notebook trains an XGBoost model to predict the players' scores for the next gameweek(s). You can then use your FPL user ID to load your own team. The Notebook creates an optimization problem using PuLP to determine:
    - Which transfers to perform.
    - The optimal starting XI and Captain to maximize points for the next gameweek.
