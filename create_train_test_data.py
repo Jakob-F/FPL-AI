@@ -355,8 +355,8 @@ def main():
     # Create training data
     create_training_data(df_all, keys_to_select)
 
-    # # API calls to load player data (Do once before each gameweek)
-    # load_player_data()
+    # API calls to load player data (Do once before each gameweek)
+    load_player_data()
 
     # Create test data
     next_gameweek = 13
