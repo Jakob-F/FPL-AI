@@ -362,7 +362,7 @@ def merge_season(season, player_mapping):
         team_dict[row['id']] = row['name']
 
     # Load FPL data
-    df_fpl = pd.read_csv(f"data/{season}/gws/merged_gw.csv")
+    df_fpl = pd.read_csv(f"data/{season}/gws/merged_gw.csv", on_bad_lines='skip')
     df_fpl['kickoff_date'] = pd.to_datetime(df_fpl['kickoff_time']).dt.date
     if season == '2023-24':
         df_fpl['name'] = df_fpl['name'].map({'Đorđe Petrović': 'Djordje Petrovic'}).fillna(df_fpl['name'])

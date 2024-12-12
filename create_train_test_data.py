@@ -359,7 +359,7 @@ def main():
     load_player_data()
 
     # Create test data
-    next_gameweek = 14
+    next_gameweek = 16
     create_test_data(df_all, keys_to_select, next_gameweek)
 
 
