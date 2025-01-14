@@ -344,7 +344,7 @@ def create_test_data(df_all, keys_to_select, next_gameweek):
 
 def main():
     # Load dataframe
-    df_all = pd.read_csv('data/all_seasons_merged.csv')
+    df_all = pd.read_csv('data/all_seasons_merged.csv', low_memory=False)
 
     # Select features to use for model
     keys_to_select = select_features(df_all)
@@ -352,14 +352,14 @@ def main():
     # Plot correlation matrix of features
     plot_correlation_matrix(df_all[keys_to_select])
 
-    # # Create training data
-    # create_training_data(df_all, keys_to_select)
+    # Create training data
+    create_training_data(df_all, keys_to_select)
 
-    # # API calls to load player data (Do once before each gameweek)
-    # load_player_data()
+    # API calls to load player data (Do once before each gameweek)
+    load_player_data()
 
     # Create test data
-    next_gameweek = 17
+    next_gameweek = 21
     create_test_data(df_all, keys_to_select, next_gameweek)
 
 
