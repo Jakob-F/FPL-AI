@@ -245,7 +245,7 @@ pos_mapping = {'GK': 1,
 
 def main():
     # Parse to get newest data
-    # parse_data()
+    parse_data()
 
     # Merge newest season FPL and Understat data
     df_24 = merge_season('2024-25', player_mapping_24)
